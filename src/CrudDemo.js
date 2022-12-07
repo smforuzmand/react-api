@@ -38,13 +38,55 @@ const CrudDemo = () => {
 
     }
 
+    const deletePersonByID = async (id) => {
+        await axios.delete(`${API_URL}/${id}`).then(
+
+            (response) => {
+                if (response.status === 204) {
+                    console.log(`API :(All) request was accomplished`);
+
+                    setPersons(response.data);
+                    console.table(response.data)
+                } else {
+                    console.error(`API: Request was executed with status code ${response.status}`)
+                }
+
+            }
 
 
-    return (
-        <div>
+        ).catch((error) => {
+            console.warn(`API: Request Encounter an Error ${error}`)
+        })
 
-        </div>
-    );
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        )
+    }
+
+
+
+return (
+    <div>
+
+    </div>
+);
 };
 
 export default CrudDemo;
