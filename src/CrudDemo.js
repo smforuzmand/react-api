@@ -60,7 +60,30 @@ const CrudDemo = () => {
 
     }
 
-}
+    const savePerson = async (data) => {
+        await axios.post(API_URL, data).then(
+            (response) => {
+                console.log(response)
+                if (response.status === 201) {
+                    console.log(`API :(save) request was accomplished`);
+
+                    setLoadData(!loadData)
+                } else if (response.status === 400) {
+
+                } else {
+                    console.error(`API: Request was executed with status code ${response.status}`)
+                }
+
+            }
+
+
+        ).catch((error) => {
+            console.warn(`API: Request Encounter an Error ${error}`)
+        })
+
+
+
+    }
 
 
 
