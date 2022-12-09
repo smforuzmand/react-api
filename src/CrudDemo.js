@@ -4,7 +4,7 @@ const CrudDemo = () => {
 
 
     const API_URL = "http://localhost:8080/api/v1/person";
-    const [person, setPersons] = useState([]);
+    const [persons, setPersons] = useState([]);
     const [loadData, setLoadData] = useState(false);
 
     useEffect(() => {
@@ -87,29 +87,13 @@ const CrudDemo = () => {
 
 
 
+    return (
+        <div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-        )
-    }
-
-
-
-return (
-    <div>
-
-    </div>
-);
+            <form handleSave={savePerson}></form>
+            <Table data={persons} handleDelete={deletePersonByID}></Table>
+        </div>
+    );
 };
 
 export default CrudDemo;
